@@ -1,14 +1,19 @@
-import { BrowserRouter } from 'react-router-dom'
-import './App.css'
-import Header from './Components/Header'
-import HeroSection from './Components/HeroSection'
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./Components/Header";
+import Home from "./pages/Home";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
-    <HeroSection />
-  )
-    
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:productId" element={<ProductPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
